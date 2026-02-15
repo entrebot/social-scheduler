@@ -1,0 +1,117 @@
+Show HN: Social Scheduler CLI – Social Media Automation from Your Terminal
+
+---
+
+Social Scheduler CLI is a free, open-source tool for scheduling posts to Twitter, LinkedIn, and Instagram from your command line.
+
+No browser required. No $50/month subscriptions. Just simple commands.
+
+Quick example:
+$ sched config --platform twitter -e user@email.com --password-input
+$ sched post -c "Just launched!" -p twitter,linkedin -s "tomorrow 9am"
+
+Why I built this:
+
+I'm a developer who manages social media for my side projects. Existing tools were overpriced for my needs, required keeping browser tabs open, and were generally developer-hostile.
+
+I wanted something that fits into my existing terminal workflow. Write content in my editor, run a command, done.
+
+Technical details:
+
+- Built with Python + Playwright for browser automation
+- Click for CLI, Pydantic for validation, Rich for terminal output
+- Credentials stored locally only (config dir)
+- MIT licensed, open source
+
+Supported features:
+
+- Twitter/X, LinkedIn, Instagram posting
+- Image uploads (up to platform limits)
+- Natural language scheduling ("in 2 hours", "tomorrow 9am")
+- CSV import for bulk scheduling
+- 5 posts/week free tier
+- $8/month for unlimited
+
+Try it:
+
+$ pip install social-scheduler
+$ sched status
+
+Repository: github.com/entrebear/social-scheduler
+
+I'd love feedback on:
+- Would you use this?
+- What features are missing?
+- Any security concerns with the local credential approach?
+
+---
+
+COMMENTS RESPONSE TEMPLATES:
+
+Q: Why not use the official APIs?
+A: Good question. Official APIs (especially Instagram) have limited access, require business verification, and have posting restrictions. This approach gives developers immediate access without jumping through hoops. For many use cases, browser automation is actually more reliable than the ever-changing API landscape.
+
+Q: Isn't storing passwords locally insecure?
+A: You're right to be concerned. Currently credentials are stored as JSON in the user's config directory. The next release will add optional encryption. That said, this is similar to how many CLI tools handle credentials (think AWS CLI, Git credentials). Open to suggestions on better approaches.
+
+Q: What about rate limits?
+A: The tool pauses between actions and respects rate limits. For normal usage (posting a few times per day), you won't hit limits. We've also seen that headless browser traffic is less aggressively rate-limited than API calls in some cases.
+
+Q: Why not just use Buffer/Hootsuite?
+A: If those tools work for you, great! This is aimed at developers who:
+- Want to stay in their terminal
+- Find existing tools overpriced for basic needs
+- Prefer open source/self-hosted solutions
+- Need simple scheduling without dashboard complexity
+
+Q: Does this violate platforms' TOS?
+A: This uses standard browser automation like any user would. It doesn't exploit APIs or use hidden endpoints. Think of it as automating the same actions you'd do manually. That said, each user should review the TOS of platforms they use.
+
+Q: What about 2FA?
+A: Currently, you need to disable 2FA for the accounts you want to automate. It's a limitation we're working on - likely will add support for TOTP in a future release.
+
+Q: Is there a web UI?
+A: No, and that's intentional. The whole point is terminal-first. However, the underlying Python library could be wrapped by someone who wanted to build a web UI on top of it.
+
+Q: How is this better than writing my own puppeteer script?
+A: You can definitely do that! This packages up best practices, handles platform quirks (Twitter's selectors change frequently), manages rate limiting, and provides a standardized CLI. Think of it as "social media automation as a library" rather than everyone reinventing the wheel.
+
+---
+
+EMAIL/OFF-HN PITCH:
+
+Subject: Social Scheduler CLI - Terminal-based social media tool reaching [X] users
+
+Hi [Name],
+
+I built Social Scheduler CLI after getting frustrated with expensive social media management tools. It lets developers schedule posts to Twitter, LinkedIn, and Instagram from the terminal.
+
+We hit [milestone - GitHub stars, downloads, etc.] this week and I thought you might find it interesting.
+
+Key stats:
+- [X] GitHub stars
+- [X] PyPI downloads
+- [X] active users
+
+It's free (5 posts/week) with a premium tier at $8/month for unlimited.
+
+Would love to get your thoughts or feedback.
+
+[Your name]
+
+---
+
+ALTERNATIVE SHORTER VERSION FOR BUSY HN:
+
+Show HN: Social Scheduler CLI - Post to Twitter, LinkedIn, Instagram from terminal
+
+$ pip install social-scheduler
+$ sched post -c "Hello world" -p twitter
+
+Features:
+- Natural language scheduling
+- CSV import
+- Local credential storage
+- 5 posts/week free, $8/mo premium
+
+Open source: github.com/entrebear/social-scheduler

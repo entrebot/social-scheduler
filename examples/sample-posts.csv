@@ -1,0 +1,6 @@
+content,platforms,scheduled_time,media_paths,hashtags,link
+"Just launched our new CLI tool! Check out Social Scheduler for easy social media automation.",twitter,2024-03-15 09:00,,"opensource,cli,socialmedia",
+"Excited to share that we're now supporting LinkedIn! Connect with us there.",linkedin,2024-03-16 10:00,,"linkedin,professional,networking",
+"Instagram support is here! Schedule your visual content.",instagram,in 2 hours,/home/user/images/demo.png,"instagram,visual,content",
+"Cross-platform posting made easy.",all,2024-03-20 14:30,,"multiplatform,social",
+"Weekly dev update: Added CSV import, better error handling, and more.",twitter,,"opensource,devupdate,python",

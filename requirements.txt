@@ -1,0 +1,14 @@
+# Core dependencies (auto-generated from pyproject.toml)
+playwright>=1.40.0
+click>=8.0.0
+rich>=13.0.0
+pydantic>=2.0.0
+schedule>=1.2.0
+python-dateutil>=2.8.0
+appdirs>=1.4.4
+
+# Development dependencies (install with: pip install -r requirements-dev.txt)
+# pytest>=7.0.0
+# black>=23.0.0
+# ruff>=0.1.0
+# mypy>=1.0.0

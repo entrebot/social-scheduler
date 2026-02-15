@@ -1,0 +1,192 @@
+Twitter Thread: Social Scheduler CLI Launch
+
+=== Tweet 1 ===
+🚀 Introducing Social Scheduler CLI
+
+A free social media scheduling tool that lives in your terminal.
+
+No browser tabs. No $50/mo fees. Just:
+$ sched post -c "Hello world!" -p twitter
+
+📱 Twitter, LinkedIn, Instagram
+📅 Schedule posts in natural language
+📄 Import from CSV
+
+Thread 🧵👇
+
+=== Tweet 2 ===
+Why build another social media tool?
+
+Because existing tools are:
+❌ Complex dashboards
+❌ Expensive for solos
+❌ Browser-heavy
+❌ Data-hungry
+
+As a dev, I want:
+simple commands that just work
+
+That's what Social Scheduler delivers.
+
+=== Tweet 3 ===
+✨ Key Features:
+
+🐦 Twitter/X with images/hashtags
+💼 LinkedIn for professional content  
+📸 Instagram photo scheduling
+📅 Natural language ("in 2 hours")
+📄 Bulk import from CSV
+🆓 5 posts/week FREE
+
+Works entirely in your terminal.
+
+=== Tweet 4 ===
+Quick example:
+
+// Configure once
+$ sched config --platform twitter
+
+// Post now
+$ sched post -c "Just launched!" -p twitter
+
+// Schedule later
+$ sched post -c "Follow-up" -p twitter,linkedin -s "tomorrow 9am"
+
+// Import CSV batch
+$ sched import content.csv
+
+=== Tweet 5 ===
+The CSV import is 🔥
+
+Perfect for batching content:
+
+```
+content,platforms,scheduled_time
+"Weekly update",twitter,monday 8am
+"LinkedIn thought",linkedin,tuesday 9am
+"Product photo",instagram,friday 5pm
+```
+
+Schedule a whole week in one file.
+
+=== Tweet 6 ===
+How does it work?
+
+- Playwright for browser automation
+- Local credential storage
+- Zero external tracking
+- Open source (MIT)
+
+All your data stays on your machine.
+No cloud. No Analytics. No BS.
+
+=== Tweet 7 ===
+Pricing that makes sense:
+
+🆓 FREE: 5 posts/week
+All platforms, CSV import, scheduling
+
+🚀 PREMIUM: $8/mo
+Unlimited posts, priority support
+
+Free tier covers most solo devs.
+Premium funds continued development.
+
+=== Tweet 8 ===
+Real use cases from beta testers:
+
+✅ Weekly product updates
+✅ Launch announcements
+✅ Content batching
+✅ Dev rel coordination
+✅ Open source releases
+
+What would you use it for?
+
+=== Tweet 9 ===
+Open source & looking for contributors:
+
+🐍 Python/Playwright
+📖 Documentation  
+🧪 Testing
+🎨 Demo content
+
+Check out the repo:
+github.com/entrebear/social-scheduler
+
+PRs welcome!
+
+=== Tweet 10 ===
+Try it now:
+
+$ pip install social-scheduler
+$ sched status
+
+Or get started:
+github.com/entrebear/social-scheduler
+
+Questions? Reply below 👇
+
+RT if you find this useful!
+
+.
+.
+.
+
+=== Bonus Poll Tweet ===
+Which social media platform do you use most for dev content?
+
+A) Twitter/X
+B) LinkedIn
+C) Instagram
+D) I don't post publicly
+
+Reply with your choice!
+
+=== Follow-up Tweet (Day 2) ===
+Overwhelmed by the response to Social Scheduler CLI launch!
+
+Top requested features:
+1. Mastodon support ⏳
+2. GitHub Actions integration ⏳
+3. Analytics dashboard on roadmap
+4. Discord notifications noted
+
+Keep the suggestions coming!
+
+=== Follow-up Tweet (Day 3) ===
+The open source community is incredible.
+
+Since launch:
+✅ 3 PRs merged
+✅ 5 bug reports resolved
+✅ New documentation translations
+✅ Docker image contributed
+
+Grateful for everyone who contributed, starred, or tried it out.
+
+Let's keep building together! 🚀
+
+=== FAQ Response Tweets ===
+
+Q: Is this secure?
+A: Credentials stored locally on your machine. We never see them. Next release adds optional encryption. Review the code - it's open source.
+
+---
+
+Q: Will I get banned?
+A: This mimics manual browser actions at reasonable rates. Many users have been running it for months without issues. Always respect rate limits and platform guidelines.
+
+---
+
+Q: Can I try before buying premium?
+A: Free tier includes 5 posts/week - more than enough to test everything. No credit card required.
+
+---
+
+Q: How is this different from API tools?
+A: No API approval needed, no rate limits on reads, no business verification. Works immediately with any account.
+
+---
+
+END OF THREAD

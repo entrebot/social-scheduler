@@ -1,121 +1,256 @@
-# Social Scheduler CLI
+# Social Scheduler CLI 📱
 
-**Free social media scheduler (5 posts/week) – built with Python & Playwright**
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-<img src="demo.gif" alt="Demo GIF" width="600"/>
+> Free social media scheduling from your terminal. Post to Twitter, LinkedIn, and Instagram with simple commands.
 
----
+## Features
 
-## What does it do?
+- ✨ **Free Tier**: 5 posts per week at no cost
+- 🚀 **Premium**: Unlimited posts for just $8/month
+- 🐦 **Twitter/X**: Automated posting with image support
+- 💼 **LinkedIn**: Professional network posting
+- 📸 **Instagram**: Photo and caption scheduling
+- 📅 **Scheduling**: Queue posts for future dates
+- 📄 **CSV Import**: Bulk schedule from spreadsheets
+- 🖥️ **Terminal-first**: Perfect for developers and power users
 
-- Schedule posts to **Twitter / X**, **LinkedIn**, and **Instagram** from a simple CSV file.
-- Uses Playwright to automate the web UI, so you don't need official APIs.
-- Free tier allows **5 posts per week** (perfect for small creators).
-- Upgrade to an **$8/mo unlimited premium** tier (no code changes required).
-
----
-
-## Quick Install
+## Installation
 
 ```bash
-# Install Playwright browsers first (only needed once)
-pip install playwright
-playwright install
+# Install from PyPI (when published)
+pip install social-scheduler
 
-# Install the CLI (editable mode during development)
+# Or install from source
 git clone https://github.com/entrebear/social-scheduler.git
 cd social-scheduler
 pip install -e .
 ```
 
-Now you have the `sched` (or `social-scheduler`) command available.
+### Prerequisites
 
----
+- Python 3.9 or higher
+- Playwright browsers (will be installed automatically)
+- Social media accounts for platforms you want to use
+
+## Quick Start
+
+```bash
+# Check status
+sched status
+
+# Configure Twitter
+sched config --platform twitter --email your@email.com --password-input
+
+# Post now
+sched post --content "Hello from Social Scheduler!" --platforms twitter --now
+
+# Schedule for later
+sched post \
+  --content "Scheduled post example" \
+  --platforms twitter,linkedin \
+  --schedule "2024-12-25 09:00"
+
+# Import from CSV
+sched import posts.csv
+```
 
 ## Configuration
 
-```bash
-# Configure each platform (you’ll be prompted for email/password)
-# Example for Twitter/X:
-sched config twitter
+Social Scheduler stores credentials locally in your config directory:
 
-# Repeat for LinkedIn and Instagram
-sched config linkedin
-sched config instagram
+| Platform  | Config Command                                      |
+|-----------|-----------------------------------------------------|
+| Twitter   | `sched config --platform twitter -e email -p pass` |
+| LinkedIn  | `sched config --platform linkedin -e email -p pass`|
+| Instagram | `sched config --platform instagram -e user -p pass`|
+
+> ⚠️ Credentials are stored locally. Keep them secure!
+
+## Usage Examples
+
+### Post with Media
+```bash
+sched post \
+  --content "Check out my new project!" \
+  --platforms twitter,linkedin \
+  --media ./screenshot.png \
+  --hashtags "opensource,python,cli"
 ```
 
-Credentials are stored in `~/.config/social-scheduler/config.json` (plain‑text – please consider encrypting for production).
+### Schedule Natural Language
+```bash
+# Schedule 2 hours from now
+sched post \
+  --content "Reminder!" \
+  --platforms all \
+  --schedule "in 2 hours"
 
----
-
-## CSV Format
-
-| column | description |
-|---|---|
-| **content** | Text of the post (required) |
-| **platforms** | Comma‑separated list: `twitter,linkedin,instagram` or `all` |
-| **scheduled_time** | ISO‑8601 datetime (e.g., `2026-02-20T14:00:00Z`). Leave empty to post now |
-| **media_paths** | Comma‑separated local file paths (images) |
-| **alt_text** | Alt text for images (optional) |
-| **hashtags** | Comma‑separated hashtags (without `#`) |
-| **link** | Optional link to append |
-
-Create a file `posts.csv`:
-
-```csv
-content,platforms,scheduled_time,media_paths,alt_text,hashtags,link
-"Hello world!",twitter,2026-02-22T10:00:00Z,,,"hello,world",
-"Check out our new blog post",all,,/path/to/image.png,"A screenshot",blog,https://example.com/blog
+# Schedule specific date/time
+sched post \
+  --content "Weekly update" \
+  --platforms linkedin \
+  --schedule "2024-06-15 14:30"
 ```
 
----
-
-## Posting
-
-### Immediate posting
-
+### View Scheduled Posts
 ```bash
-sched run posts.csv
+sched scheduled
 ```
 
-### Schedule for later
-
+### Run Due Posts
 ```bash
-sched run posts.csv --schedule
-# Later, when you want to fire due posts:
+# In a cron job or manually
 sched run-scheduled
 ```
 
----
+## CSV Import Format
 
-## Premium Upgrade
+Create a CSV file with your posts:
 
-If you hit the free‑tier limit, you’ll see a prompt with a Stripe link:
-
+```csv
+content,platforms,scheduled_time,media_paths,hashtags,link
+"Hello World!",twitter,2024-06-15 09:00,,"greeting,hello",
+"Project launch",linkedin,2024-06-16 10:00,./image.png,"launch,beta",https://example.com
+"Photo post",instagram,in 1 hour,./photo.jpg,"photo,daily",
 ```
-https://buy.stripe.com/example
-```
 
-Run the following command with the API key you receive after purchase:
+| Column         | Description                                           |
+|----------------|-------------------------------------------------------|
+| content        | Post text content                                     |
+| platforms      | Comma-separated: twitter, linkedin, instagram, all    |
+| scheduled_time | ISO format, natural language, or empty for immediate |
+| media_paths    | Comma-separated file paths (optional)                 |
+| hashtags       | Comma-separated without # (optional)                  |
+| link           | URL to include (optional)                             |
+
+See [examples/sample-posts.csv](examples/sample-posts.csv) for a full example.
+
+## Platform Limits
+
+| Platform  | Max Characters | Max Images |
+|-----------|---------------|------------|
+| Twitter   | 280           | 4          |
+| LinkedIn  | 3,000         | 9          |
+| Instagram | 2,200         | 10         |
+
+## Pricing
+
+### Free Tier
+- ✅ 5 posts per week
+- ✅ All platforms
+- ✅ Basic scheduling
+- ✅ CSV import
+- ✅ Community support
+
+### Premium ($8/month)
+- 🚀 Unlimited posts
+- 🚀 Bulk operations
+- 🚀 Priority support
+- 🚀 Analytics dashboard
+- 🚀 API access (coming soon)
+
+[Upgrade to Premium](https://buy.stripe.com/example) | [GitHub Sponsors](https://github.com/sponsors/entrebear)
+
+## Running Scheduled Posts
+
+Add to your crontab for automatic posting:
 
 ```bash
-sched upgrade YOUR_STRIPE_API_KEY
+# Check every 15 minutes
+*/15 * * * * /usr/bin/sched run-scheduled
+
+# Or use with Poetry/pipx
+*/15 * * * * /home/user/.local/bin/pipx run sched run-scheduled
 ```
 
----
+## Development
 
-## Demo Video
+```bash
+# Clone repo
+git clone https://github.com/entrebear/social-scheduler.git
+cd social-scheduler
 
-A short demo video (GIF) is included in the repository (`demo.gif`).
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
----
+# Install dev dependencies
+pip install -e ".[dev]"
+
+# Install playwright browsers
+playwright install chromium
+
+# Run tests
+pytest tests/
+
+# Format code
+black src/ tests/
+ruff check src/ tests/
+
+# Type check
+mypy src/
+```
+
+## Troubleshooting
+
+### Login Issues
+- Ensure 2FA is disabled for the accounts you want to automate
+- Check that credentials are correct with `sched config`
+- Try running with `--no-headless` to see the browser
+
+### Rate Limits
+Social Scheduler respects platform rate limits. If you hit limits:
+- Wait a few minutes between posts
+- Upgrade to Premium for better scheduling
+- Use the `--headless` flag to reduce detection
+
+### Media Upload Failures
+- Ensure images are under platform size limits
+- Supported formats: JPG, PNG, GIF (platform-dependent)
+- Check file paths are correct and files exist
+
+## Security
+
+- Credentials stored in `~/.config/social-scheduler/` (Linux/Mac) or `%APPDATA%\social-scheduler` (Windows)
+- No data sent to external servers except to social media platforms
+- Open source - audit the code yourself!
 
 ## Contributing
 
-Feel free to open issues or PRs. This project is MIT‑licensed.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
----
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## Roadmap
+
+- [x] Twitter/X support
+- [x] LinkedIn support
+- [x] Instagram support
+- [x] CSV import
+- [x] Scheduling
+- [ ] Analytics dashboard
+- [ ] Webhook notifications
+- [ ] Mastodon support
+- [ ] TikTok support
+- [ ] REST API
 
 ## License
 
-MIT © 2026 OpenClaw
+MIT License - see [LICENSE](LICENSE) file.
+
+## Support
+
+- 💖 [GitHub Sponsors](https://github.com/sponsors/entrebear)
+- ☕ [Buy Me a Coffee](https://www.buymeacoffee.com/entrebear)
+- 📧 [Open an issue](https://github.com/entrebear/social-scheduler/issues)
+
+---
+
+Made with ❤️ by [OpenClaw](https://github.com/entrebear)
