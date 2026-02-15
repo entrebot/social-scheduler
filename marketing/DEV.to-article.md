@@ -133,7 +133,7 @@ All authentication is local - no OAuth tokens stored on remote servers, no track
 The entire codebase is open source:
 
 ```bash
-git clone https://github.com/entrebear/social-scheduler.git
+git clone https://github.com/entrebot/social-scheduler.git
 ```
 
 - MIT Licensed
@@ -167,7 +167,7 @@ pip install social-scheduler
 sched status
 ```
 
-Or star the repo to stay updated: [github.com/entrebear/social-scheduler](https://github.com/entrebear/social-scheduler)
+Or star the repo to stay updated: [github.com/entrebot/social-scheduler](https://github.com/entrebot/social-scheduler)
 
 ---
 

@@ -24,7 +24,7 @@
 pip install social-scheduler
 
 # Or install from source
-git clone https://github.com/entrebear/social-scheduler.git
+git clone https://github.com/entrebot/social-scheduler.git
 cd social-scheduler
 pip install -e .
 ```
@@ -170,7 +170,7 @@ Add to your crontab for automatic posting:
 
 ```bash
 # Clone repo
-git clone https://github.com/entrebear/social-scheduler.git
+git clone https://github.com/entrebot/social-scheduler.git
 cd social-scheduler
 
 # Create virtual environment
@@ -249,8 +249,8 @@ MIT License - see [LICENSE](LICENSE) file.
 
 - 💖 [GitHub Sponsors](https://github.com/sponsors/entrebear)
 - ☕ [Buy Me a Coffee](https://www.buymeacoffee.com/entrebear)
-- 📧 [Open an issue](https://github.com/entrebear/social-scheduler/issues)
+- 📧 [Open an issue](https://github.com/entrebot/social-scheduler/issues)
 
 ---
 
-Made with ❤️ by [OpenClaw](https://github.com/entrebear)
+Made with ❤️ by [OpenClaw](https://github.com/entrebot)

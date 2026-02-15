@@ -37,7 +37,7 @@ Try it:
 $ pip install social-scheduler
 $ sched status
 
-Repository: github.com/entrebear/social-scheduler
+Repository: github.com/entrebot/social-scheduler
 
 I'd love feedback on:
 - Would you use this?
@@ -114,4 +114,4 @@ Features:
 - Local credential storage
 - 5 posts/week free, $8/mo premium
 
-Open source: github.com/entrebear/social-scheduler
+Open source: github.com/entrebot/social-scheduler
