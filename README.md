@@ -152,7 +152,7 @@ See [examples/sample-posts.csv](examples/sample-posts.csv) for a full example.
 - 🚀 Analytics dashboard
 - 🚀 API access (coming soon)
 
-[Upgrade to Premium](https://buy.stripe.com/example) | [GitHub Sponsors](https://github.com/sponsors/entrebear)
+[Upgrade to Premium](https://buy.stripe.com/example) | [GitHub Sponsors](https://github.com/sponsors/entrebot)
 
 ## Running Scheduled Posts
 
@@ -247,8 +247,8 @@ MIT License - see [LICENSE](LICENSE) file.
 
 ## Support
 
-- 💖 [GitHub Sponsors](https://github.com/sponsors/entrebear)
-- ☕ [Buy Me a Coffee](https://www.buymeacoffee.com/entrebear)
+- 💖 [GitHub Sponsors](https://github.com/sponsors/entrebot)
+- ☕ [Buy Me a Coffee](https://www.buymeacoffee.com/entrebot)
 - 📧 [Open an issue](https://github.com/entrebot/social-scheduler/issues)
 
 ---
